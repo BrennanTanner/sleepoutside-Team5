@@ -30,6 +30,9 @@
       "@babel/preset-env"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "browserslist": [
     "last 3 and_chr versions",
     "last 3 chrome versions",
