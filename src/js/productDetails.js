@@ -10,6 +10,7 @@ export default class ProductDetails {
     async init() {
         this.product = await this.dataSource.findProductById(this.productId);
         document.querySelector('main').innerHTML = this.renderProductDetails();
+        // document.querySelector('cart-count').innerHTML = this.checkItemsCount(this.getNumber());
         // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
         // once we have the product details we can render out the HTML
         // once the HTML is rendered we can add a listener to Add to Cart button
@@ -39,4 +40,16 @@ export default class ProductDetails {
           <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
         </div></section>`;
     }
+    // getNumber() {
+    //     const items = localStorage.getItem('so-cart')
+    //     const itemsArray = []
+    //     const itemsNumber = itemsArray.push(items)
+    //     return itemsNumber
+    // }
+
+    // checkItemsCount(itemsNumber) {
+
+    //     return `<sup>${itemsNumber.toString}</sup>`;
+          
+    // }
 }
