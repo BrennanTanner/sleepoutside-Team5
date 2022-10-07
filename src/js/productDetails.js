@@ -31,7 +31,8 @@ export default class ProductDetails {
           src="${this.product.Image}"
           alt="${this.product.NameWithoutBrand}"
         />
-        <p class="product-card__price">$${this.product.FinalPrice}</p>
+        <h3 class="product-card__markup">$${this.product.SuggestedRetailPrice}</h3>
+        <h2 class="product-card__price">$${this.product.FinalPrice}</h2>
         <p class="product__color">${this.product.Colors[0].ColorName}</p>
         <p class="product__description">
         ${this.product.DescriptionHtmlSimple}

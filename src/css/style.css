@@ -146,6 +146,16 @@ button {
   margin: 0.5em 0;
 }
 
+.product-card__price {
+  display: inline;
+  } 
+
+.product-card__markup {
+  color: red;
+  text-decoration: line-through;
+  display: inline;
+  } 
+
 .card__brand {
   font-size: var(--small-font);
 }
@@ -199,7 +209,7 @@ button {
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
-}
+} 
 
 @media screen and (min-width: 500px) {
   body {
