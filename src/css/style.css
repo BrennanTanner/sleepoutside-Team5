@@ -201,6 +201,20 @@ button {
   grid-column: 3;
 }
 
+.cart-number {
+  font-size: small;
+  padding: 3.5px;
+  background: orange; 
+  border-radius: 50%;
+}
+
+.cart-count {
+  position: relative;
+  left: 0.35rem;
+  top: 0.75rem;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
