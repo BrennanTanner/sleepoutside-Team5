@@ -24,6 +24,7 @@ export default class ProductDetails {
     }
 
     renderProductDetails() {
+    
         return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
         <h2 class="divider">${this.product.NameWithoutBrand}</h2>
         <img
