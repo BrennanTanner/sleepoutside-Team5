@@ -9,6 +9,11 @@ function getCartContents() {
   cart.push(cartItems)
   const htmlItems = cart.map((item) => renderCartItem(item));
   document.querySelector('.product-list').innerHTML = htmlItems.join('');
+
+
+
+
+ //const cartTotal = 
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
 }
 
