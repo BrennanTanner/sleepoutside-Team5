@@ -17,10 +17,17 @@ export default class ProductDetails {
         // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
         document.getElementById('addToCart')
         .addEventListener('click', this.addToCart.bind(this));
+        document.querySelector('.remove-item')
+        .addEventListener('click', this.removeToCart.bind(this));
     }
 
     addToCart() {
         setLocalStorage('so-cart', this.product);
+    }
+
+    removeToCart() {
+
+        localStorage.removeItem('so-cart')
     }
 
     renderProductDetails() {
@@ -42,16 +49,5 @@ export default class ProductDetails {
           <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
         </div></section>`;
     }
-    // getNumber() {
-    //     const items = localStorage.getItem('so-cart')
-    //     const itemsArray = []
-    //     const itemsNumber = itemsArray.push(items)
-    //     return itemsNumber
-    // }
 
-    // checkItemsCount(itemsNumber) {
-
-    //     return `<sup>${itemsNumber.toString}</sup>`;
-          
-    // }
 }
