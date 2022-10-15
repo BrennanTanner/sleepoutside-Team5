@@ -1,6 +1,6 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -146,16 +146,6 @@ button {
   margin: 0.5em 0;
 }
 
-.product-card__price {
-  display: inline;
-  } 
-
-.product-card__markup {
-  color: red;
-  text-decoration: line-through;
-  display: inline;
-  } 
-
 .card__brand {
   font-size: var(--small-font);
 }
@@ -209,11 +199,13 @@ button {
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
-} 
+}
 
 .cart-number {
   font-size: small;
-  padding: 3.5px;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
   background: orange; 
   border-radius: 50%;
 }
@@ -223,7 +215,6 @@ button {
   left: 0.35rem;
   top: 0.75rem;
 }
-
 
 @media screen and (min-width: 500px) {
   body {
