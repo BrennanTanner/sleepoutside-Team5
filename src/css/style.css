@@ -216,6 +216,22 @@ button {
   top: 0.75rem;
 }
 
+.products-icons-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.icon-links {
+  width: 150px;
+  padding: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.icon-titles {
+  padding-top: 1rem;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
