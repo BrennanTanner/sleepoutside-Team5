@@ -40,6 +40,7 @@ export default class ProductDetails {
       src="${this.product.Images.PrimaryLarge}"
       alt="${this.product.NameWithoutBrand}"
     />
+    <p class="product-card__discount">$${this.product.SuggestedRetailPrice}</p>
     <p class="product-card__price">$${this.product.FinalPrice}</p>
     <p class="product__color">${this.product.Colors[0].ColorName}</p>
     <p class="product__description">

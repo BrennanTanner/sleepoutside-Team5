@@ -21,6 +21,8 @@ export default class ProductList {
     template.querySelector('img').alt += product.Name;
     template.querySelector('.card__brand').textContent = product.Brand.Name;
     template.querySelector('.card__name').textContent = product.NameWithoutBrand;
+    console.log(product);
+    template.querySelector('.product-card__discount').textContent += product.SuggestedRetailPrice;
     template.querySelector('.product-card__price').textContent += product.FinalPrice; 
     return template;
   }
