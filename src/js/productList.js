@@ -12,6 +12,8 @@ export default class ProductList {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
     document.querySelector('.title').innerHTML = this.category;
+    
+    document.querySelector('#breadcrumb').innerHTML = this.renderBreadCrumb(list);
   }
   
   prepareTemplate(template, product) {
@@ -21,7 +23,9 @@ export default class ProductList {
     template.querySelector('img').alt += product.Name;
     template.querySelector('.card__brand').textContent = product.Brand.Name;
     template.querySelector('.card__name').textContent = product.NameWithoutBrand;
+    template.querySelector('.product-card__discount').textContent += product.SuggestedRetailPrice;
     template.querySelector('.product-card__price').textContent += product.FinalPrice; 
+
     return template;
   }
   renderList(list) {
@@ -30,7 +34,14 @@ export default class ProductList {
     //get the template
     const template = document.getElementById('product-card-template');
     renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
+
+    document.querySelector('#breadcrumb').innerHTML = this.category;
     
+  }
+
+  renderBreadCrumb(list) {
+    return `<p>${this.category} -> ${list.length} items </p>
+    `;
   }
   // original method before moving the template logic to utils.js
   // renderList(list) {

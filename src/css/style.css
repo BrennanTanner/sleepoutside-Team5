@@ -232,6 +232,17 @@ button {
 .icon-titles {
   padding-top: 1rem;
 }
+
+.product-card__price{
+  display: inline
+}
+
+.product-card__discount{
+  font-size:medium;
+  color: #797979;
+  text-decoration: line-through;
+  display: inline;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

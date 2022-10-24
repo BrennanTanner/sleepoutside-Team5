@@ -10,7 +10,7 @@ export default class CartList {
     
     const list = getLocalStorage(this.key);
     this.renderList(list);
-
+    document.getElementById('cartTotal').innerHTML = `Total: ${list.length}`;
   }
 
   prepareTemplate(template, product) {

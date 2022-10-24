@@ -40,7 +40,9 @@ export function getParam(param) {
 }
 
 export function renderListWithTemplate(template, parent, list, callback) {
-  if (!list){
+
+  if (!list || list.length === 0){
+
     document.getElementById('emptyCart').style.display = 'inline';
   }
   else {
