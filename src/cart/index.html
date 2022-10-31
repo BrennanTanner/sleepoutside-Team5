@@ -16,7 +16,9 @@
         <p class="cart-card__color"></p>
         <p class="cart-card__quantity">qty: 1</p>
         <p class="cart-card__price">$</p>
-        <button class="removeFromCart" onclick='removeLocalStorage(this)'>X</button>
+        <button class="removeFromCart" onclick="removeLocalStorage(this)">
+          X
+        </button>
       </li>
     </template>
   </head>
@@ -25,7 +27,7 @@
     <main class="divider">
       <section class="products">
         <h2>My Cart</h2>
-        <h3 id="emptyCart" style="display: none;">There's nothing here!</h3>
+        <h3 id="emptyCart" style="display: none">There's nothing here!</h3>
         <ul class="product-list"></ul>
       </section>
     </main>
@@ -33,18 +35,18 @@
     <script src="../js/cart.js" type="module"></script>
     <script>
       function removeLocalStorage(data) {
-       let key = data.getAttribute("data-id");
-       
-       let localContent = JSON.parse(localStorage.getItem('so-cart'));
- localContent.forEach((element, i) => {
-    if (element.Id == key) {
-      localContent.splice(i, 1);
-    }
-  });
-  localStorage.setItem('so-cart', JSON.stringify(localContent));
-  location.reload();
-  alert("Item removed from cart!");
-}
+        let key = data.getAttribute('data-id');
+
+        let localContent = JSON.parse(localStorage.getItem('so-cart'));
+        localContent.forEach((element, i) => {
+          if (element.Id == key) {
+            localContent.splice(i, 1);
+          }
+        });
+        localStorage.setItem('so-cart', JSON.stringify(localContent));
+        location.reload();
+        alert('Item removed from cart!');
+      }
     </script>
   </body>
 </html>

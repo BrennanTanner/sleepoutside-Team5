@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, loadHeaderFooter } from './utils.js';
+import { setLocalStorage, getLocalStorage, loadHeaderFooter, removeLocalStorage } from './utils.js';
 
 
 loadHeaderFooter();
@@ -24,9 +24,15 @@ export default class ProductDetails {
      cartContents = [];
     }
     // then add the current product to the list
-    cartContents.push(this.product);
+    cartContents.push(this.product)
+    // if(cartContents.length === 0) {
+    //   cartContents.push(this.product);
+    // }
 
+    console.log(cartContents)
+    
     setLocalStorage('so-cart', cartContents);
+
 
     location.reload()
     alert('Item added to cart!');

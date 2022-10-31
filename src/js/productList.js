@@ -11,7 +11,11 @@ export default class ProductList {
     // our dataSource will return a Promise...so we can use await to resolve it.
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
-    document.querySelector('.title').innerHTML = this.category;
+    if (document.querySelector('.title') === null) {
+      console.log('It is null')
+    } else {
+      document.querySelector('.title').innerHTML = this.category;
+    }
   }
   
   prepareTemplate(template, product) {
