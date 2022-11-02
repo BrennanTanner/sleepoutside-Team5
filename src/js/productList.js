@@ -11,9 +11,15 @@ export default class ProductList {
     // our dataSource will return a Promise...so we can use await to resolve it.
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
+
+    if (document.querySelector('.title')) {
     document.querySelector('.title').innerHTML = this.category;
-    
-    document.querySelector('#breadcrumb').innerHTML = this.renderBreadCrumb(list);
+  }
+
+    if (document.querySelector('#breadcrumb')) {
+      document.querySelector('#breadcrumb').innerHTML = this.renderBreadCrumb(list);
+    }
+    this.renderSortBy();
   }
   
   prepareTemplate(template, product) {
@@ -35,9 +41,15 @@ export default class ProductList {
     const template = document.getElementById('product-card-template');
     renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
 
-    document.querySelector('#breadcrumb').innerHTML = this.category;
-    
+    if (document.querySelector('#breadcrumb')) {
+      document.querySelector('#breadcrumb').innerHTML = this.category;
+    }
+
   }
+
+  // renderSortBy(){
+  //   document.querySelector('.product-list').insertAdjacentHTML('beforebegin', '<button>sort by</button>');
+  // }
 
   renderBreadCrumb(list) {
     return `<p>${this.category} -> ${list.length} items </p>
