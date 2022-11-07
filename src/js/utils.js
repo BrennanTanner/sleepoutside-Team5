@@ -100,3 +100,39 @@ function getLocalStorageCount(localContent) {
   return localContent.length;
 }
 
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement('div');
+  // const xButton = document.createElement('div');
+  // const messages = document.createElement('div');
+  // xButton.innerHTML = 'X'
+  // xButton.classList.add('x')
+  // messages.innerHTML = message
+  // alert.appendChild(xButton)
+  // alert.appendChild(messages)
+  alert.classList.add('alert');
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+  
+  alert.addEventListener('click', function(e) {
+      if(e.target.tagName == 'SPAN') {
+        main.removeChild(this);
+      }
+  })
+
+  // alert.addEventListener('click', function(e) {
+  //   if(e.target.classList.contains('x')) {
+  //     main.removeChild(this);
+  //   }
+  // })
+
+  const main = document.querySelector('main');
+  main.prepend(alert);
+
+  if(scroll)
+    window.scrollTo(0,0);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll('.alert');
+  alerts.forEach(alert => document.querySelector('main').removeChild(alert));
+}
+
