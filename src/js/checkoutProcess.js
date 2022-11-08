@@ -97,6 +97,7 @@ export default class CheckoutProcess {
     json.orderTotal = this.orderTotal;
     json.shipping = this.shipping;
     json.tax = this.tax;
+    json.items = packageItems(this.list);
     console.log(json);
     try {
       const res = await services.checkout(json);
@@ -108,7 +109,8 @@ export default class CheckoutProcess {
       for(let message in err.message) {
          alertMessage(err.message[message]);
       }
-      throw {name: 'checkout-error', message: err}
+
+      console.log(err)
     }
   }
 }
