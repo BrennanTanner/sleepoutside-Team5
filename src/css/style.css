@@ -257,6 +257,81 @@ button {
   }
 }
 
+/*ribbon css */
+.ribbon{
+  background-color: orange;
+  width: 2.5em;
+  height: 2em;
+  position: relative;
+  border-top-right-radius: .2em;
+  border-top-left-radius: .2em;
+  margin-right: 1em;
+}
+#pricing {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ribbon i{
+  width: 90%;
+  height: 250%;
+  display: block;
+  margin: auto;
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+}
+i span{
+  color: #FFF;
+  display: block;
+  text-align: center;
+  top: 50%;
+  margin-top: -2em;
+  position: relative;
+  font-style: normal;
+  font-weight: bold;
+}
+s{
+  width: 0.3em;
+  height: 0.3em;
+  background: #333;
+  top: 50%;
+  margin-top: -0.3125em;
+  display: block;
+  position: absolute;
+  opacity: .5;
+}
+
+s:nth-of-type(1){
+  margin-left: -1.25em;
+  left: 0;
+}
+s:nth-of-type(2){
+  right: 0;
+  margin-right: -1.25em;
+}
+.ribbon:before{
+  content: "";
+  position: absolute;
+  bottom: -1.4em;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-top: 1.5em solid orange;
+	border-right: 1.5em solid transparent;
+}
+.ribbon:after{
+  content: "";
+  position: absolute;
+  bottom: -1.4em;
+  right: 0;
+  width: 0;
+	height: 0;
+	border-top: 1.5em solid orange;
+	border-left: 1.5em solid transparent;
+}
+
+
 footer {
   font-size: var(--small-font);
   padding: 1em;

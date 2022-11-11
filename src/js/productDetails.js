@@ -7,6 +7,7 @@ export default class ProductDetails {
     this.product = {};
     this.dataSource = dataSource;
     this.imageSize = '';
+    this.discount = '';
   }
 
   async init() {
@@ -21,6 +22,9 @@ export default class ProductDetails {
     } else {
       this.imageSize = this.product.Images.PrimaryExtraLarge;
     }
+    this.discount = 100 - ((this.product.FinalPrice / this.product.SuggestedRetailPrice) * 100);
+
+  
 
     document.querySelector('main').innerHTML = this.renderProductDetails();
 
@@ -54,9 +58,15 @@ export default class ProductDetails {
       src="${this.imageSize}"
       alt="${this.product.NameWithoutBrand}"
     />
+    <section id='pricing'>
+    <div class="ribbon">
+    <i><span><s></s>${parseFloat(this.discount).toFixed(0)}%<s></s></span></i>
+    </div>
+    <div>
     <p class="product-card__discount">$${this.product.SuggestedRetailPrice}</p>
     <p class="product-card__price">$${this.product.FinalPrice}</p>
     <p class="product__color">${this.product.Colors[0].ColorName}</p>
+    </div></section>
     <p class="product__description">
     ${this.product.DescriptionHtmlSimple}
     </p>
