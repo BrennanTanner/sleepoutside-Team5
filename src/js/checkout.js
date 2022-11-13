@@ -1,4 +1,4 @@
-import { getLocalStorage, loadHeaderFooter, removeLocalStorage } from './utils.js';
+import { loadHeaderFooter } from './utils.js';
 
 import CheckoutProcess from './checkoutProcess';
 
@@ -15,7 +15,6 @@ document.querySelector('#checkoutSubmit').addEventListener('click', (e) => {
 
    const form = document.forms[0];
    const checkValidation = form.checkValidity();
-   console.log(checkValidation)
   form.reportValidity();
   if(checkValidation) {
     myCheckout.checkout();

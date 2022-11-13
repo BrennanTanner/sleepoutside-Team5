@@ -1,6 +1,5 @@
 import ExternalServices from './externalServices';
 import ProductList from './productList.js';
-import Admin from '../admin/admin.js';
 import Alert from './alert.js';
 import { loadHeaderFooter } from './utils.js';
 
@@ -14,9 +13,6 @@ const listElement = document.querySelector('.product-list');
 const myList = new ProductList('tents', dataSource, listElement);
 // finally call the init method to show our products
 myList.init();
-
-const login = new Admin();
-login.init();
 
 const alertItem = new Alert(document.querySelector('main'));
 alertItem.init();
