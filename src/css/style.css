@@ -243,6 +243,25 @@ button {
   text-decoration: line-through;
   display: inline;
 }
+
+.quick-view-content {
+  display: flex;
+  align-items: center;
+}
+
+.product-quick {
+  position: relative;
+}
+
+.quick-view-button {
+  position: absolute;
+}
+
+/* .quick-view-button:hover {
+  display: inline-block;
+  position: absolute;
+} */
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -255,6 +274,13 @@ button {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+}
+
+#cart-animation {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
 }
 
 footer {

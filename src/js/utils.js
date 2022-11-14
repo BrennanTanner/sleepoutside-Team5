@@ -95,9 +95,13 @@ document.querySelector('.cart-count').innerHTML = cartSubscript(
 }
 }
 
-function getLocalStorageCount(localContent) {
+export function getLocalStorageCount(localContent) {
+  let total = 0;
+  localContent.forEach((element) => {
+    total += element.qty
+  })
   
-  return localContent.length;
+  return total;
 }
 
 export function alertMessage(message, scroll = true) {

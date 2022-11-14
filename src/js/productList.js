@@ -14,7 +14,18 @@ export default class ProductList {
     document.querySelector('.title').innerHTML = this.category;
     
     document.querySelector('#breadcrumb').innerHTML = this.renderBreadCrumb(list);
+    // document.querySelector('.quick-view-button').innerHTML = this.buildQuickView(list);
+    // document
+    // .querySelector('.quick-view')
+    // .addEventListener('click', this.myFunction())
+  
   }
+
+
+// myFunction() {
+//   console.log('hello')
+// }
+
   
   prepareTemplate(template, product) {
     
@@ -40,9 +51,17 @@ export default class ProductList {
   }
 
   renderBreadCrumb(list) {
+    console.log(list)
     return `<p>${this.category} -> ${list.length} items </p>
     `;
   }
+
+  // buildQuickView(list) {
+  //   return `
+  //     <img href="${list.Images.PrimaryMedium}" />
+  //     <p>${list.Name}</p>
+  //   `
+  // }
   // original method before moving the template logic to utils.js
   // renderList(list) {
     // const template = document.getElementById('product-card-template');
@@ -53,3 +72,4 @@ export default class ProductList {
     // })
   // }
 }
+

@@ -1,10 +1,11 @@
 const baseURL = 'http://server-nodejs.cit.byui.edu:3000/'
 
 async function convertToJson(res) {
+  const data = await res.json();
   if (res.ok) {
-    return res.json();
+    return data;
   } else {
-    throw {name: 'serviceError', message: res.json()};
+    throw {name: 'serviceError', message: data};
   }
 }
 
@@ -23,6 +24,7 @@ export default class ExternalServices  {
     
   }
   async checkout(payload) {
+    console.log(payload)
     const options = {
       method: 'POST',
       headers: {
@@ -30,6 +32,6 @@ export default class ExternalServices  {
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(baseURL + 'checkout', options).then(convertToJson);
+    return await fetch(baseURL + 'checkout/', options).then(convertToJson);
   }
 }

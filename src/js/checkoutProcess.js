@@ -1,5 +1,5 @@
-import { getLocalStorage, setLocalStorage, removeAllAlerts, alertMessage } from './utils';
-import ExternalServices from './externalServices';
+import { getLocalStorage, setLocalStorage, removeAllAlerts, alertMessage } from './utils.js';
+import ExternalServices from './externalServices.js';
 
 const services = new ExternalServices();
 
@@ -45,11 +45,18 @@ export default class CheckoutProcess {
   }
 
   calculateItemSummary() {
-    this.itemTotal = this.list.length;
+    let total = 0;
 
-    this.list.forEach((item) => {
-      this.subTotal += item.ListPrice;
-    });
+    this.list.forEach((element) => {
+      total += element.qty
+      this.subTotal += element.FinalPrice
+    })
+    this.itemTotal = total;
+
+    // this.list.forEach((item) => {
+    //   this.subTotal += item.ListPrice;
+    // });
+    // console.log(this.list)
 
     document.getElementById(
       'orderSummary'
@@ -93,7 +100,6 @@ export default class CheckoutProcess {
     const json = formDataToJSON(formElement);
 
     json.orderDate = new Date();
-    json.items = packageItems(this.list);
     json.orderTotal = this.orderTotal;
     json.shipping = this.shipping;
     json.tax = this.tax;

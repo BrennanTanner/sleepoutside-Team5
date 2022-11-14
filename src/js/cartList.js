@@ -14,6 +14,7 @@ export default class CartList {
   }
 
   prepareTemplate(template, product) {
+
     
     template.querySelector('.cart-card__image img').src =  product.Images.PrimaryMedium;
     template.querySelector('.cart-card__image img').alt += product.Name;
@@ -22,6 +23,13 @@ export default class CartList {
     template.querySelector('.cart-card__price').textContent += product.FinalPrice; 
     //template.querySelector('.cart-card__quantity').textContent = '0'; 
     template.querySelector('.removeFromCart').setAttribute('data-id' , product.Id);
+    template.querySelector('.cart-card__quantity').textContent = product.qty;
+    template
+      .querySelector('.removeFromCart')
+      .setAttribute('data-id', product.Id);
+
+
+    location.reload
 
     return template;
   }
