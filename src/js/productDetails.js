@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, loadHeaderFooter } from './utils.js';
+import { setLocalStorage, getLocalStorage, loadHeaderFooter, getLocalStorageCount } from './utils.js';
 
 loadHeaderFooter();
 export default class ProductDetails {
@@ -41,11 +41,53 @@ export default class ProductDetails {
       cartContents = [];
     }
     // then add the current product to the list
-    cartContents.push(this.product);
+
+    this.product['qty'] = 1;
+
+    if (cartContents.length === 0) {
+      cartContents.push(this.product);
+    } else {
+      if (cartContents.some((e) => e.Id === this.product.Id)) {
+        const i = cartContents.findIndex((e) => e.Id === this.product.Id);
+        if (i > -1) {
+          console.log(cartContents[i].qty)
+          cartContents[i].qty += 1
+          cartContents[i].FinalPrice += this.product.FinalPrice
+        } 
+      } else {
+        cartContents.push(this.product)
+      }
+    }
+
+    console.log(cartContents);
+
 
     setLocalStorage('so-cart', cartContents);
-    location.reload();
     alert('Item added to cart!');
+
+    const cartSubscript = (count) => `<sup class="cart-number">${count}</sup>`;
+    let localContent = JSON.parse(localStorage.getItem('so-cart'));
+
+    if (localContent.length > 0) {
+      document.querySelector('.cart-count').innerHTML = cartSubscript(
+        getLocalStorageCount(localContent)
+      );
+    }
+
+    document.querySelector('.cart-count').animate(
+      [
+        // keyframes
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-5px)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(0px)' },
+      ],
+      {
+        // timing options
+        duration: 1000,
+        iterations: 1,
+      }
+    );
   }
 
   renderProductDetails() {
