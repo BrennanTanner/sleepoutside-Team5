@@ -30,7 +30,7 @@ export default class ExternalServices  {
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(baseURL + 'checkout', options).then(convertToJson);
+    return await fetch(baseURL + 'checkout/', options).then(convertToJson);
   }
 
   async loginRequest(user) {

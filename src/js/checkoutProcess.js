@@ -91,7 +91,9 @@ export default class CheckoutProcess {
   }
 
   async checkout() {
-    const formElement = document.forms['checkout'];
+    // const formElement = document.forms['checkout'];
+    let formElement = document.querySelector('form');
+    console.log(formElement)
 
     const json = formDataToJSON(formElement);
 
