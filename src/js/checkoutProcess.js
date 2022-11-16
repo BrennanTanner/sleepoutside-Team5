@@ -46,15 +46,18 @@ export default class CheckoutProcess {
 
   calculateItemSummary() {
     this.itemTotal = this.list.length;
+    let total = 0;
+    this.list.forEach((element) => {
+      total += element.qty
+      this.subTotal += element.FinalPrice
+    })
+    this.itemTotal = total;
 
-    this.list.forEach((item) => {
-      this.subTotal += item.ListPrice;
-    });
 
     document.getElementById(
       'orderSummary'
     ).innerHTML = `<p>Item Subtotal (${this.itemTotal})</p>
-            <p>$${this.subTotal}</p>`;
+            <p>$${this.subTotal.toFixed(2)}</p>`;
     this.calculateOrderTotal();
   }
 
@@ -88,7 +91,9 @@ export default class CheckoutProcess {
   }
 
   async checkout() {
-    const formElement = document.forms['checkout'];
+    // const formElement = document.forms['checkout'];
+    let formElement = document.querySelector('form');
+    console.log(formElement)
 
     const json = formDataToJSON(formElement);
 
