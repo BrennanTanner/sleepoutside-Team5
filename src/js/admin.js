@@ -21,7 +21,7 @@ export default class Admin {
    // add the html for the login form
      this.mainElement.innerHTML = loginForm();
      // now that it is in the DOM we can add a listener for the login button
-     document.querySelector('#loginButton').addEventListener('click', (e) => {
+     document.querySelector('#loginButton').addEventListener('click', () => {
        const email = document.querySelector('#email').value;
        const password = document.querySelector('#password').value;
        this.login({email, password}, this.showOrders.bind(this));
@@ -32,7 +32,6 @@ export default class Admin {
      const orders = await this.services.getOrders(this.token);
      this.mainElement.innerHTML = orderHtml();
      const parent = document.querySelector('#orders tbody');
-     // why not a template like we have done before?  The markup here was simple enough that I didn't think it worth the overhead...but a template would certainly work!
      parent.innerHTML = orders.map(order=> `<tr><td>${order.id}</td><td>${new Date(order.orderDate).toLocaleDateString('en-US')}</td><td>${order.items.length}</td><td>${order.orderTotal}</td></tr>`).join('');
    } catch(err) {
      console.log(err);
@@ -40,8 +39,6 @@ export default class Admin {
  }
  
 }
-// why do this as functions returning html instead of a template? Both of these are single use. Templates as we have used them make more sense for re-use.
-// using a template would be another valid solution for this however...
 function loginForm() {
  return `<fieldset class="login-form">
  <legend>Login</legend>
