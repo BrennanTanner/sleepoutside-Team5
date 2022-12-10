@@ -8,7 +8,6 @@ const myCheckout = new CheckoutProcess(
   'so-cart',
   document.getElementById('orderSummary')
 );
-
 myCheckout.init();
 document
   .querySelector('#zip')
@@ -22,4 +21,5 @@ document.querySelector('#checkoutSubmit')
   myForm.reportValidity();
   if(chk_status) 
     myCheckout.checkout();
+  }
 });

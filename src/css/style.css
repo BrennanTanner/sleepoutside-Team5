@@ -342,3 +342,10 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+#cart-animation {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+}

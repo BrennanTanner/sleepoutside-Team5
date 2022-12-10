@@ -1,4 +1,4 @@
-import { renderListWithTemplate, getLocalStorage} from './utils.js';
+import { renderListWithTemplate, getLocalStorage, getLocalStorageCount} from './utils.js';
 
 export default class CartList {
   constructor (key, listElement) {
@@ -10,7 +10,8 @@ export default class CartList {
     
     const list = getLocalStorage(this.key);
     this.renderList(list);
-    document.getElementById('cartTotal').innerHTML = `Total: ${list.length}`;
+    let count = getLocalStorageCount(list);
+    document.getElementById('cartTotal').innerHTML = `Total: ${count}`;
   }
 
   prepareTemplate(template, product) {
@@ -19,10 +20,10 @@ export default class CartList {
     template.querySelector('.cart-card__image img').alt += product.Name;
     template.querySelector('.card__name').textContent = product.Name;
     template.querySelector('.cart-card__color').textContent = product.Colors[0].ColorName;
-    template.querySelector('.cart-card__price').textContent += product.FinalPrice; 
-    //template.querySelector('.cart-card__quantity').textContent = '0'; 
+    template.querySelector('.cart-card__price').textContent += product.FinalPrice.toFixed(2); 
+    template.querySelector('.cart-card__quantity').textContent = `qty: ${product.qty}`; 
     template.querySelector('.removeFromCart').setAttribute('data-id' , product.Id);
-
+    location.reload
     return template;
   }
   

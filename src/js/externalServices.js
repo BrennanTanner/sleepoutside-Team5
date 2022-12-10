@@ -28,8 +28,10 @@ export default class ExternalServices  {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
-    }
+
+      body: JSON.stringify(payload),
+    };
+
     return await fetch(baseURL + 'checkout/', options).then(convertToJson);
   }
 
