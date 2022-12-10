@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Outside | Cart</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <template id="cart-card-template">
+      <li class="cart-card divider">
+        <a href="#" class="cart-card__image">
+          <img src alt="Image of ">
+        </a>
+        <a href="#">
+          <h2 class="card__name"></h2>
+        </a>
+        <p class="cart-card__color"></p>
+        <p class="cart-card__quantity">qty: 1</p>
+        <p class="cart-card__price">$</p>
+        <button class="removeFromCart" onclick="removeLocalStorage(this)">X</button>
+      </li>
+    </template>
+  </head>
+  <body>
+    <header class="divider" id="main-header"></header>
+    <main class="divider">
+      <section class="products">
+        <h2>My Cart</h2>
+        
+        <h3 id="emptyCart" style="display: none;">There&apos;s nothing here!</h3>
+        <ul class="product-list"></ul>
+        <h2 id="cartTotal"></h2>
+        <form action="../checkout/index.html">
+          <input type="submit" value="Checkout">
+      </form>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+    <script src="../js/cart.js" type="module"></script>
+    <script>
+      function removeLocalStorage(data) {
+       let key = data.getAttribute("data-id");
+       
+       let localContent = JSON.parse(localStorage.getItem('so-cart'));
+ localContent.forEach((element, i) => {
+    if (element.Id == key) {
+      localContent.splice(i, 1);
+    }
+  });
+  localStorage.setItem('so-cart', JSON.stringify(localContent));
+  location.reload();
+  alert("Item removed from cart!");
+}
+    </script>
+  
+
+</body></html>

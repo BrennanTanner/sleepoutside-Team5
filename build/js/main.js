@@ -1,0 +1,1 @@
+import t from"./externalServices.js";import e from"./productList.js";import r from"./alert.js";import{loadHeaderFooter as o}from"./utils.js";o();const s=new t("tents"),i=document.querySelector(".product-list"),n=new e("tents",s,i);n.init();const c=new r(document.querySelector("main"));c.init();
